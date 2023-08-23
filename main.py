@@ -45,7 +45,7 @@ print(title)
 # variable declaration
 video_list = []
 url = str(input("Please enter URL: "))
-path = r"C:\Users\user\Desktop\just_code\python\youtube_dl\download"
+path = "./download"
 
 # download playlist
 download_playlist(url, path)
