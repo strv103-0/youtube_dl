@@ -1,6 +1,21 @@
 import os
-from pytube import Playlist
-from moviepy.editor import AudioFileClip
+import sys
+import subprocess
+
+def install(package):
+    subprocess.check_call([sys.executable,'-m', 'pip', 'install', '--upgrade', 'pip'])
+    # 에러 발생한 모듈 설치
+    subprocess.check_call([sys.executable,'-m', 'pip', 'install', '--upgrade', package])
+
+try:
+    from pytube import Playlist
+    from moviepy.editor import AudioFileClip
+except:
+    install('pytube')
+    install('moviepy')
+    from pytube import Playlist
+    from moviepy.editor import AudioFileClip
+
 
 
 # download playlist
