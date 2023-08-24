@@ -81,11 +81,11 @@ for video in video_list:
         failed_deletion.append(mp4_file_path)
 
 
-# 실패한 다운로드 출력
+# Failed download output
 print_failed_operations(failed_download, "download")
 
-# 실패한 변환 출력
+# Failed conversion output
 print_failed_operations(failed_conversion, "convert")
 
-# 실패한 삭제 출력
+# Failed delete output
 print_failed_operations(failed_deletion, "delete")
