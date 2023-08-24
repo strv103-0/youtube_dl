@@ -43,7 +43,7 @@ title ="""
 |     _______| |      |  |        |  |___     |
 |    |_________|      |__|        \_____/     |
 |                                             |
-|                                    1.0.1    |
+|                                    1.0.2    |
 |_____________________________________________|
 """
 
@@ -52,25 +52,28 @@ print(title)
 
 # variable declaration
 video_list = []
-url = str(input("Please enter URL: "))
-path = r"C:\Users\user\Desktop\just_code\python\youtube_dl\download"
+path_download = "./downloads"
+path_temp = "./temp"
 failed_download = []
 failed_conversion = []
 failed_deletion = []
 
+# url input
+url = str(input("Please enter URL: "))
+
 # download playlist
-download_playlist(url, path)
+download_playlist(url, path_temp)
 
 # List folder file names
-for (root, directories, files) in os.walk(path):
+for (root, directories, files) in os.walk(path_temp):
     for file in files:
         if '.mp4' in file:
             video_list.append(file)
 
 # mp4 to mp3 conversion and deletion of original mp4 files.
 for video in video_list:
-    mp4_file_path = os.path.join(path, video)  # using os.path.join for OS-independent paths.
-    mp3_file_path = os.path.join(path, video.replace(".mp4", ".mp3"))
+    mp4_file_path = os.path.join(path_temp, video)  # using os.path.join for OS-independent paths.
+    mp3_file_path = os.path.join(path_download, video.replace(".mp4", ".mp3"))
     
     convert_mp4_to_mp3(mp4_file_path, mp3_file_path)
     
