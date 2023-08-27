@@ -9,12 +9,12 @@ def install(package):
 
 try:
     from pytube import Playlist
-    from moviepy.editor import VideoFileClip
+    from moviepy.editor import AudioFileClip
 except:
     install('pytube')
     install('moviepy')
     from pytube import Playlist
-    from moviepy.editor import VideoFileClip
+    from moviepy.editor import AudioFileClip
 
 
 
@@ -30,16 +30,14 @@ def download_playlist(url, path):
             print(f"An error occurred with the following video: {video.title}")
             failed_download.append(video.title)
 
-# mp4 to wav
-def convert_mp4_to_wav(mp4_file_path, wav_file_path):
+# mp4 to mp3
+def convert_mp4_to_mp3(mp4_file_path, mp3_file_path):
     try:
-        video = VideoFileClip(mp4_file_path)
-        video.audio.write_audiofile(wav_file_path)
-
-        print(f"{mp4_file_path} 파일이 {wav_file_path} 파일로 변환되었습니다.")
-        
+        audio = AudioFileClip(mp4_file_path)
+        audio.write_audiofile(mp3_file_path)
     except Exception as e:
-        print(f"{mp4_file_path} 파일을 변환하는 동안 오류가 발생하였습니다: {e}")
+        print(f"An error occurred while converting {mp4_file_path} to MP3")
+        failed_conversion.append(mp4_file_path)
 
 # print failed operations
 def print_failed_operations(failed_list, operation_type):
@@ -60,7 +58,7 @@ title ="""
 |     _______| |      |  |        |  |___     |
 |    |_________|      |__|        \_____/     |
 |                                             |
-|                                    2.0.0    |
+|                                    1.2.1    |
 |_____________________________________________|
 """
 
@@ -90,9 +88,9 @@ for (root, directories, files) in os.walk(path_temp):
 # mp4 to mp3 conversion and deletion of original mp4 files.
 for video in video_list:
     mp4_file_path = os.path.join(path_temp, video)  # using os.path.join for OS-independent paths.
-    wav_file_path = os.path.join(path_download, video.replace(".mp4", ".wav"))
+    mp3_file_path = os.path.join(path_download, video.replace(".mp4", ".mp3"))
     
-    convert_mp4_to_wav(mp4_file_path, wav_file_path)
+    convert_mp4_to_mp3(mp4_file_path, mp3_file_path)
     
     try: 
         os.remove(mp4_file_path)
@@ -109,3 +107,4 @@ print_failed_operations(failed_conversion, "convert")
 
 # Failed delete output
 print_failed_operations(failed_deletion, "delete")
+
