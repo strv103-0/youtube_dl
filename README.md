@@ -4,7 +4,7 @@
 ## 사용법
 > 1. 파이썬 파일과 같은 위치에 **downloads**폴더를 추가한다.
 > 2. 터미널을 열고 `pip install yt-dlp`를 입력한다.
-> 3. [ffmpeg 설치 가이드](##-ffmpeg-설치-가이드(Windows-버전))에 따라 ffmpeg를 설치한다.
+> 3. [ffmpeg 설치 가이드](##ffmpeg-설치-가이드(Windows-버전))에 따라 ffmpeg를 설치한다.
 > 4. 파이썬 파일을 실행한다.
 > 5. 유튜브 **플레이리스트** URL을 입력한다.
 > 6. **downloads** 폴더에서 파일을 가져온다.
