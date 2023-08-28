@@ -4,7 +4,7 @@
 ## 사용법
 > 1. 파이썬 파일과 같은 위치에 **downloads**폴더를 추가한다.
 > 2. 터미널을 열고 `pip install yt-dlp`를 입력한다.
-> 3. [ffmpeg 설치 가이드](https://phoenixnap.com/kb/ffmpeg-windows)에 따라 ffmpeg를 설치한다.
+> 3. [ffmpeg 설치 가이드](![image](https://github.com/strv103-0/youtube_dl/assets/112059527/11d0d5bd-203c-47fc-af05-4a855a3908cc)에 따라 ffmpeg를 설치한다.
 > 4. 파이썬 파일을 실행한다.
 > 5. 유튜브 **플레이리스트** URL을 입력한다.
 > 6. **downloads** 폴더에서 파일을 가져온다.
@@ -23,7 +23,7 @@
 > - ffmpeg 자동 설치
 
 
-## **ffmpeg**설치 가이드(Windows 버전)
+## **ffmpeg** 설치 가이드(Windows 버전)
 > 1. [**FFmpeg** 다운로드 페이지](https://ffmpeg.org/download.html)로 들어간다.
 > 2. **Windows** 이미지를 누른다. ![image](https://github.com/strv103-0/youtube_dl/assets/112059527/710c066e-eea6-4102-8e67-f4831e57ae49)
 > 3. `Windows builds from gyan.dev`버튼을 누른다.![image](https://github.com/strv103-0/youtube_dl/assets/112059527/293ad0ca-28ad-4ed4-9aa6-f2f94897276f)
