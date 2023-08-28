@@ -25,5 +25,6 @@
 
 ## **ffmpeg**설치 가이드(Windows 버전)
 > 1. [**FFmpeg** 다운로드 페이지](https://ffmpeg.org/download.html)로 들어간다.
-> 2. Windows 이미지를 누른다. ![image](https://github.com/strv103-0/youtube_dl/assets/112059527/710c066e-eea6-4102-8e67-f4831e57ae49)
-> 3. 
+> 2. **Windows** 이미지를 누른다. ![image](https://github.com/strv103-0/youtube_dl/assets/112059527/710c066e-eea6-4102-8e67-f4831e57ae49)
+> 3. 그 이후 `Windows builds from gyan.dev`버튼을 누른다.![image](https://github.com/strv103-0/youtube_dl/assets/112059527/293ad0ca-28ad-4ed4-9aa6-f2f94897276f)
+
