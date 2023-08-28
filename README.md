@@ -31,8 +31,3 @@
 > 5. 다운로드 후 파일을 `C:/`에 압축을 해제한다.
 > 6. 시스템 환경 변수 편집에 들어가 **환경 변수** 버튼을 누르고 **Path**을 누르고 **편집**을 누른다.![image](https://github.com/strv103-0/youtube_dl/assets/112059527/83368f86-c7d9-484a-b450-81a6cdc72f3f)
 > 7. **새로 만들기**를 누른후 `C:\ffmpeg\bin`을 입력하고 저장하면 설정 끝이다.![image](https://github.com/strv103-0/youtube_dl/assets/112059527/83ca66aa-c5a2-4d7f-b054-d1d0531917c5)
-
-
-
-
-
