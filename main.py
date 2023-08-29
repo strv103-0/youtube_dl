@@ -7,12 +7,26 @@ title ="""
 |    |   ______|   \  \  /  /  |___    __|    |
 |    |  |______     \  \/  /       |  |       |
 |    |_______  |     \    /        |  |       |
-|     _______| |      |  |       __|  |       |
+|     _______| |      |  |      ___|  |       |
 |    |_________|      |__|      \_____/       |
 |                                             |
-|                                    2.0.0    |
+|                                    2.1.0    |
 |_____________________________________________|
 """
+
+import subprocess
+import sys
+
+def install(package):
+    try:
+        # 파이썬 import 문을 사용하여 모듈 존재 확인
+        __import__(package)
+    except ImportError:
+        # 모듈이 없으면 pip를 사용하여 설치
+        subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+
+# yt_dlp 라이브러리를 체크하고 필요시 설치합니다.
+install('yt_dlp')
 
 import yt_dlp
 
