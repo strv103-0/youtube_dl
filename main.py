@@ -16,6 +16,8 @@ title ="""
 
 import yt_dlp
 
+
+# 플레이리스트 다운로드 함수
 def download_playlist(url):
     ydl_opts = {
         'format': 'bestaudio/best',                       # 영상화질 선택(화질을 선택하지 않으면 가장 좋은 화질로 다운로드)
