@@ -53,7 +53,6 @@ def download_playlist(url):
 try:
     import subprocess
     import sys
-    import zipfile
     import os
 except ImportError:
     print("파이썬 기본 모듈을 불러올 수 없습니다.")
@@ -81,19 +80,15 @@ if os.path.isfile(ffmpeg_7z_path) == True:
         try:
             # 7za 명령 줄 유틸리티를 사용하여 .exe 파일을 추출합니다.
             # 시스템 구성에 따라 7za의 경로를 조정해야 할 수 있습니다.
-            subprocess.run([r"C:\Program Files\7-Zip\7z.exe", 'e', ffmpeg_7z_path, '-o./', 'ffmpeg.exe'], check=True)
+            subprocess.run(["./7-Zip/7z.exe", 'e', ffmpeg_7z_path, '-o./', 'ffmpeg.exe'], check=True)
         except (subprocess.CalledProcessError, FileNotFoundError):
-            # 압축 해제가 실패한 경우 오류 메시지를 출력하고 프로그램을 종료합니다.
             print("파일 압축 해제에 실패했습니다.")
-            sys.exit("Failed to extract the file.")
-    # 다시 한번 ffmpeg.exe 파일이 존재하는지 확인합니다. 
-    if os.path.isfile(ffmpeg_exe_path) == False:
-        # 만약 여전히 없다면 오류 메시지를 출력하고 프로그램을 종료합니다.
+            sys.exit("Failed to extract the file.") # 파일 압축 해제에 실패한 경우 오류 메시지를 출력하고 프로그램을 종료합니다.
+    if os.path.isfile(ffmpeg_exe_path) == False:    # 다시 한번 ffmpeg.exe 파일이 존재하는지 확인합니다. 
         print("ffmpeg.exe 파일이 존재하지 않습니다.")
-        sys.exit("Failed to find ffmpeg.exe.")
-    # 마지막으로, 원본인 ffmpeg.7z 파일이 아직도 있는 경우 이를 삭제합니다. 
-    if os.path.isfile(ffmpeg_7z_path) == True:
-        os.remove(ffmpeg_7z_path)
+        sys.exit("Failed to find ffmpeg.exe.")      # ffmpeg.exe 파일이 존재하지 않는 경우 오류 메시지를 출력하고 프로그램을 종료합니다.
+    # if os.path.isfile(ffmpeg_7z_path) == True:      # 마지막으로, 원본인 ffmpeg.7z 파일이 아직도 있는 경우 이를 삭제합니다.
+    #     os.remove(ffmpeg_7z_path)
 
 # title 출력
 print(title+"\n")
