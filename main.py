@@ -49,6 +49,15 @@ def download_playlist(url):
         print("다운로드에 실패하였습니다.")
         sys.exit("Failed to download.")
 
+
+# 터미널 화면 지우기
+def clear():
+    if '\\' in os.getcwd():
+        os.system('cls')
+    else:
+        os.system('clear')
+
+
 # 파이썬 기본 모듈
 try:
     import subprocess
@@ -73,22 +82,24 @@ except ImportError:
 ffmpeg_7z_path = './ffmpeg.7z'
 ffmpeg_exe_path = './ffmpeg.exe'
 
-# ffmpeg.7z 파일이 존재하는지 확인합니다.
-if os.path.isfile(ffmpeg_7z_path) == True:
-    # ffmpeg.exe 파일이 존재하지 않는지 확인합니다.
-    if os.path.isfile(ffmpeg_exe_path) == False:
+
+if os.path.isfile(ffmpeg_7z_path) == True:            # ffmpeg.7z 파일이 존재하는지 확인
+    
+    if os.path.isfile(ffmpeg_exe_path) == False:      # ffmpeg.exe 파일이 존재하지 않는지 확인
         try:
-            # 7za 명령 줄 유틸리티를 사용하여 .exe 파일을 추출합니다.
-            # 시스템 구성에 따라 7za의 경로를 조정해야 할 수 있습니다.
-            subprocess.run(["./7-Zip/7z.exe", 'e', ffmpeg_7z_path, '-o./', 'ffmpeg.exe'], check=True)
+            subprocess.run(["./7-Zip/7z.exe", 'e',
+                            ffmpeg_7z_path,
+                            '-o./', 'ffmpeg.exe'], check=True)     # .exe 파일을 추출
         except (subprocess.CalledProcessError, FileNotFoundError):
             print("파일 압축 해제에 실패했습니다.")
-            sys.exit("Failed to extract the file.") # 파일 압축 해제에 실패한 경우 오류 메시지를 출력하고 프로그램을 종료합니다.
-    if os.path.isfile(ffmpeg_exe_path) == False:    # 다시 한번 ffmpeg.exe 파일이 존재하는지 확인합니다. 
+            sys.exit("Failed to extract the file.")   # 파일 압축 해제 실패시 오류 메시지 출력 후 종료
+    if os.path.isfile(ffmpeg_exe_path) == False:      # ffmpeg.exe 파일이 존재 확인 
         print("ffmpeg.exe 파일이 존재하지 않습니다.")
-        sys.exit("Failed to find ffmpeg.exe.")      # ffmpeg.exe 파일이 존재하지 않는 경우 오류 메시지를 출력하고 프로그램을 종료합니다.
-    # if os.path.isfile(ffmpeg_7z_path) == True:      # 마지막으로, 원본인 ffmpeg.7z 파일이 아직도 있는 경우 이를 삭제합니다.
-    #     os.remove(ffmpeg_7z_path)
+        sys.exit("Failed to find ffmpeg.exe.")        # ffmpeg.exe 파일이 존재하지 않는 경우 오류 메시지 출력 후 종료
+    if os.path.isfile(ffmpeg_7z_path) == True:        # ffmpeg.7z 파일이 있는 경우 삭제
+        os.remove(ffmpeg_7z_path)
+
+clear()
 
 # title 출력
 print(title+"\n")
