@@ -1,6 +1,5 @@
 from PyQt5.QtWidgets import QApplication, QWidget, QGridLayout, QPushButton, QLineEdit, QLabel, QFileDialog, QMessageBox
 from PyQt5.QtCore import Qt
-from PyQt5.QtGui import QFontMetrics
 from main import download_playlist  # main.py에서 download_playlist 함수 임포트
 
 class Application(QWidget):
@@ -9,19 +8,17 @@ class Application(QWidget):
 
         self.url_entry = QLineEdit()
         self.path_button = QPushButton("...")
+        self.path_button.setFixedSize(23, 25)
         self.download_button = QPushButton("Download")
         self.path_label = QLabel()
-
-        # Set the size of the path button.
-        self.path_button.setFixedSize(20, 20)
 
         self.init_ui()
 
     def init_ui(self):
         
         layout = QGridLayout()
-         
-        layout.addWidget(QLabel("Please enter url:"), 0 ,0)
+        
+        layout.addWidget(QLabel("Please enter URL:"), 0 ,0)
         layout.addWidget(self.url_entry ,0 ,1)
        
         # Add a button for selecting the save path.
@@ -33,7 +30,8 @@ class Application(QWidget):
         layout.addWidget(self.download_button ,1 ,0)
 
         # Add a label to display the selected save path.
-        layout.addWidget(self.path_label ,2 ,0)
+        layout.addWidget(QLabel("Save Path:"), 2 ,0)
+        layout.addWidget(self.path_label ,2 ,1)
 
         self.setLayout(layout)
 
@@ -57,10 +55,12 @@ def start_gui():
     app=QApplication([])
     
     application=Application()
-    
+   
+    application.setWindowTitle("Playlist Downloader")  # Set window title
+   
     application.show()
-    
+   
     app.exec_()
 
 if __name__ == "__main__":
-    start_gui() 
+   start_gui() 
